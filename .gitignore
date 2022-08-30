@@ -1,0 +1,5 @@
+phong_aws_credentials.cfg
+new_user_credentials.csv
+not_commit_*
+__pycache__
+.idea
