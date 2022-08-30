@@ -89,3 +89,39 @@ The `s3://udacity-dend` S3 Bucket has 2 separate folders,
         .           └── ...
 		.
 ```
+
+## `s3://<YOUR_SPARKIFY_DATA_LAKE>` S3 Bucket
+The `s3://<YOUR_SPARKIFY_DATA_LAKE>` S3 Bucket has 5 separate folders. All files stored in columnar format 
+which is parquet.
+
+```
+└── s3://<YOUR_SPARKIFY_DATA_LAKE>
+    ├── artists
+    │   ├── part-00000-af2ee25c-baba-40aa-af3c-92d3cafd3735-c000.snappy.parquet
+    │   ├── part-00000-af2ee25c-baba-40aa-af3c-92d3cafd3735-c000.snappy.parquet
+    │   └── ...
+    │
+    ├── songplays
+    │   └── year=2018
+    │       └── month=11
+    │           ├── part-00000-56e8f2b7-1773-463d-9845-039bf497b913.c000.snappy.parquet
+    │           └── part-00001-56e8f2b7-1773-463d-9845-039bf497b913.c000.snappy.parquet
+    │
+    ├── songs
+    │   ├── year=0
+    │   │   └── artist_id=ARAJPHH1187FB5566A
+    │   │       ├── part-00115-c2b58d60-5a85-42c0-94c7-431ed97a4f83.c000.snappy.parquet
+    │   │       └── ...
+    │   ├── ...
+    │
+    ├── time
+    │   └── year=2018
+    │       └── month=11
+    │           ├── part-00000-e072f0be-145e-422c-9462-32e90d9c3c1f.c000.snappy.parquet
+    │           ├── part-00001-e072f0be-145e-422c-9462-32e90d9c3c1f.c000.snappy.parquet
+    │           └── ...
+    └── users
+        ├── part-00000-83da2a48-88b7-4b23-a867-7be18ea4242e-c000.snappy.parquet
+        ├── part-00002-83da2a48-88b7-4b23-a867-7be18ea4242e-c000.snappy.parquet
+        └── ...
+```
