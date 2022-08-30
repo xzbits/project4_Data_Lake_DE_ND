@@ -45,3 +45,47 @@ S3_BUCKET=
 ```commandline
 python etl.py
 ```
+
+# Repository
+## `s3://udacity-dend` S3 Bucket
+The `s3://udacity-dend` S3 Bucket has 2 separate folders, 
+* The `song_data` folder includes all JSON files need for `staging_songs`, `songs` and `artists` tables.
+* The `log_data` folder includes all JSON files need for `staging_events`, `users`, and `time` tables.
+```
+└── s3://udacity-dend
+    ├── log_data
+    │   └── 2018
+    │       └── 11
+    │           ├── 2018-11-01-events.json
+    │           ├── 2018-11-02-events.json
+    │           └── ...
+    └── song_data
+        ├── A
+        │   ├── A
+        │   │   ├── A
+        │   │   │   ├── TRAAAAW128F429D538.json
+        │   │   │   ├── TRAAABD128F429CF47.json
+        │   │   │   └── ...
+        │   │   ├── B
+        │   │   │   ├── TRAABCL128F4286650.json
+        │   │   │   ├── TRAABDL12903CAABBA.json
+        │   │   │   └── ...
+        │   │   └── C
+        │   │       ├── TRAACCG128F92E8A55.json
+        │   │       ├── TRAACER128F4290F96.json
+        │   │       └── ...
+        │   └── B
+        │       ├── A
+        │       │   ├── TRABACN128F425B784.json
+        │       │   ├── TRABAFJ128F42AF24E.json
+        │       │   └── ...
+        │       ├── B
+        │       │   ├── TRABBAM128F429D223.json
+        │       │   ├── TRABBBV128F42967D7.json
+        │       │   └── ...
+        │       └── C
+        │           ├── TRABCAJ12903CDFCC2.json
+        .           ├── TRABCEC128F426456E.json
+        .           └── ...
+		.
+```
