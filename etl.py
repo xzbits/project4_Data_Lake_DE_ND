@@ -143,20 +143,22 @@ def process_log_data(spark, input_data, output_data):
     song_df = spark.read.parquet(os.path.join(output_data, 'songs'))
     artist_df = spark.read.parquet(os.path.join(output_data, 'artists'))
 
-    songplays_df = df.withColumn('songplay_id', monotonically_increasing_id())\
-        .join(song_df, (df.song == song_df.title) & (df.length == song_df.duration))\
-        .join(artist_df, df.artist == artist_df.artist_name)\
-        .select(df.start_time,
-                month(df.start_time).alias('month'),
-                year(df.start_time).alias('year'),
-                df.userId,
-                df.level,
-                song_df.song_id,
-                artist_df.artist_id,
-                df.sessionId,
-                df.location,
-                df.userAgent
-                )
+    # create songplay_id column with monotonically_increasing_id()
+    df = df.withColumn('songplay_id', monotonically_increasing_id())
+    songplays_df = df.join(song_df, (df.song == song_df.title) & (df.length == song_df.duration))\
+                        .join(artist_df, df.artist == artist_df.artist_name)\
+                        .select(df.songplay_id,
+                                df.start_time,
+                                month(df.start_time).alias('month'),
+                                year(df.start_time).alias('year'),
+                                df.userId,
+                                df.level,
+                                song_df.song_id,
+                                artist_df.artist_id,
+                                df.sessionId,
+                                df.location,
+                                df.userAgent
+                                )
 
     # write songplays table to parquet files partitioned by year and month
     songplays_df.write.partitionBy('year', 'month').mode('overwrite').parquet(os.path.join(output_data, 'songplays'))
